@@ -47,7 +47,7 @@ The recommended workflow is
 Your home folder is synced to `/vagrant` on the guest.
 
 ## Database
-* For mysql the default user is root: `mysql -u root`
+* For mysql the default user is root with blank password: `mysql -u root`
 
 ## Tutorial
 
