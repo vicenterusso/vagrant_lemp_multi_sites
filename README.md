@@ -71,7 +71,7 @@ This is the folder structure that you will need to follow:
 |   +-- mysite2.com [project files (www)]
 ```
 
-In this example, Vagrant will create 2 databases named `dbname1` and `dbname2`. A file named `created` will be created inside each database folder. This is just a flag, that means your next `vagrant provision` won't delete the database. the `dump.sql` will be executed when creating if exists. If you want to dump another set and recreate the database, just delete the `created` file. Dump files must have `use` statement for each database.
+In this example, Vagrant will create 2 databases named `dbname1` and `dbname2`. A file named `created` will be created inside each database folder. This is just a flag, that means your next `vagrant provision` won't try to create your database again. the `dump.sql` will be executed when creating if exists. If you want to dump another set and recreate the database, just delete the `created` file. Dump files must have `use` statement for each database.
 
 Inside `nginx_template` you will find the the `nginx-vhost-template.conf` that will be created and the domain used will be replaced by the folder name. So, in that case, `local.mysite1.com` and `local.mysite2.com` are valid projects.
 
