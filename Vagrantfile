@@ -48,4 +48,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # install some base packages
   config.vm.provision :shell, path: "provision.sh"
+  config.vm.provision :shell, path: "startup.sh", run: "always", privileged: false
+  
+  
 end
