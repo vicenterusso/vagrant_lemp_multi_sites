@@ -6,5 +6,5 @@ echo "Backup MySQL"
 for d in "/vagrant/db/"*
 do
 	f=$(basename "$d")
-	mysqldump -uroot -p123 "$f" | p7zip > /vagrant/db/"$f"/"$f"_$(date +%Y-%m-%d-%H.%M.%S).sql.7z	
+	mysqldump -uroot "$f" | gzip > /vagrant/db/"$f"/"$f"_$(date +%Y-%m-%d-%H.%M.%S).sql.gz	
 done
