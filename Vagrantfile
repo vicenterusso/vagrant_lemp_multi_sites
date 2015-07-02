@@ -6,6 +6,11 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
+  
+  config.trigger.before :halt do
+    info "Dumping the database before halt VM..."
+	run_remote "bash /vagrant/halt.sh"
+  end
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs

@@ -7,9 +7,8 @@ This project automates the setup of a LEMP multi-site development environment. B
 ## Requirements
 
 * [VirtualBox](https://www.virtualbox.org)
-
 * [Vagrant](http://vagrantup.com)
-
+* [Vagrant Triggers](https://github.com/emyl/vagrant-triggers) for auto dumping databases when Halt
 * [Cygwin](https://www.cygwin.com/) or any other ssh-capable terminal shell for the `vagrant ssh` command
 
 ## How To Build The Virtual Machine
