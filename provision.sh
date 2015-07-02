@@ -19,6 +19,10 @@ echo "Install commonly used php packages"
 # Install commonly used php packages
 sudo aptitude install -q -y -f php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcached php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl php5-xcache
 
+echo "Install p7zip"
+sudo apt-get install p7zip-full
+
+
 echo "Configuring MySQL"
 #Mysql
 for d in "/vagrant/db/"*
