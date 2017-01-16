@@ -35,6 +35,7 @@ done
 echo "Configuring NGINX"
 #Nginx
 conf="/vagrant/nginx_template/nginx-vhost-template.conf"
+sudo rm /etc/nginx/sites-enabled/default
 for d in "/vagrant/nginx_template/"*/
 do
 	f=$(basename "$d")
