@@ -22,10 +22,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network "forwarded_port", guest: 80,    host: 8080
   config.vm.network "forwarded_port", guest: 3306,  host: 33306
-
+  
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network "private_network", ip: "10.4.4.58"
+  config.vm.network "private_network", ip: "10.4.4.60"
+  
+  # config.ssh.forward_agent = true
+  # config.ssh.username = "vagrant"
+  # config.ssh.password = "vagrant"
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
@@ -41,12 +45,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider "virtualbox" do |v|
     # Don't boot with headless mode
     v.gui = false
-	v.name = "vagrant_lemp_multi_sites"
+	v.name = "vagrantbox"
     # Use VBoxManage to customize the VM. For example to change memory:
-    v.customize ["modifyvm", :id, "--memory",               "512"]
-    v.customize ["modifyvm", :id, "--cpuexecutioncap",      "95"]
-    v.customize ["modifyvm", :id, "--natdnshostresolver1",  "on"]
-    v.customize ["modifyvm", :id, "--natdnsproxy1",         "on"]
+    v.customize ["modifyvm", :id, "--memory",               "2048"]
+    v.customize ["modifyvm", :id, "--cpuexecutioncap",        "95"]
+    v.customize ["modifyvm", :id, "--natdnshostresolver1",    "on"]
+    v.customize ["modifyvm", :id, "--natdnsproxy1",           "on"]
   end
 
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"

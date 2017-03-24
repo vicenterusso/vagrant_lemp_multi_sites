@@ -16,7 +16,16 @@ apt-get install -q -y -f mysql-server mysql-client nginx php5-fpm
 
 echo "Install commonly used php packages"
 # Install commonly used php packages
-sudo aptitude install -q -y -f php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcached php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl php5-xcache
+sudo aptitude install -q -y -f php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcached php5-ming php5-ps php5-pspell php5-recode php5-sqlite php5-tidy php5-xmlrpc php5-xsl php5-xcache
+
+echo "Install wkhtmltopdf"
+sudo apt-get install xvfb
+wget --no-verbose http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-trusty-amd64.deb
+sudo dpkg -i wkhtmltox-0.12.2.1_linux-trusty-amd64.deb
+sudo apt-get -y -f install
+echo 'xvfb-run -a -s "-screen 0 1280x800x16" wkhtmltopdf "$@"' > wkhtmltopdf.sh
+sudo chmod a+x wkhtmltopdf.sh
+sudo mv wkhtmltopdf.sh /usr/local/bin/
 
 echo "Configuring MySQL"
 #Mysql
